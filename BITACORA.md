@@ -19,6 +19,16 @@
 
 ### Pendientes
 
-- [ ] Reemplazar "Sitio en Construcción" con el sitio final
-- [ ] Agregar SSL/HTTPS si no está configurado
-- [ ] Crear contenido real del negocio (catálogo de llantas)
+### Sesión: 2026-07-03
+
+### Acciones realizadas
+
+- Creación de landing page profesional con hero, servicios (venta de llantas, reparación mecánica, hojalatería/pintura, refacciones), sección about con datos de CSF y formulario de contacto
+- Repositorio GitHub creado: `https://github.com/Automatizia/labodegadellantas.com`
+- Landing page desplegada vía SSH (`ai-cto-server.pem`) a VPS2 (`74.208.13.120`)
+- Contenido real del negocio (dirección, teléfono, WhatsApp, horarios)
+
+### Pendientes
+
+- [ ] Verificar que Meta crawler lea la página correctamente (Facebook Sharing Debugger)
+- [ ] Verificar dominio en Meta Business Suite vía DNS TXT
