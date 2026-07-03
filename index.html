@@ -29,15 +29,16 @@
         :root {
             --primary: #1a3a5c;
             --primary-dark: #0f2440;
-            --accent: #c9a13b;
-            --accent-hover: #b8922f;
+            --accent: #d4a843;
+            --accent-hover: #be9230;
+            --accent-light: rgba(212,168,67,0.12);
             --bg: #ffffff;
-            --surface: #f8f9fa;
-            --text: #1d1d1f;
+            --surface: #f2efe8;
+            --text: #111827;
             --text-light: #374151;
             --white: #ffffff;
-            --shadow: 0 4px 24px rgba(0,0,0,0.08);
-            --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
             --radius: 12px;
         }
 
@@ -123,12 +124,13 @@
             letter-spacing: -1px;
             margin-bottom: 16px;
         }
-        .hero h1 span { color: var(--accent); }
+        .hero h1 span { color: var(--accent); text-shadow: 0 0 20px rgba(212,168,67,0.3); }
         .hero p {
             font-size: 1.15rem;
-            color: rgba(255,255,255,0.92);
+            color: #ffffff;
             max-width: 640px;
             margin: 0 auto 32px;
+            opacity: 0.9;
         }
         .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
         .btn {
@@ -148,19 +150,30 @@
         }
         .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
         .btn-outline {
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.4);
             color: var(--white);
         }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: rgba(212,168,67,0.08); }
 
         section { padding: 72px 0; }
         section:nth-child(even) { background: var(--surface); }
+        section#contacto { background: var(--surface); }
+        section#servicios .section-sub { margin-bottom: 36px; }
         .section-title {
             text-align: center;
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 12px;
             color: var(--primary);
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 12px auto 0;
+            border-radius: 2px;
         }
         .section-sub {
             text-align: center;
@@ -182,12 +195,13 @@
             box-shadow: var(--shadow);
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid var(--accent);
         }
         .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
         .service-icon {
             width: 56px;
             height: 56px;
-            background: rgba(201,161,59,0.12);
+            background: var(--accent-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -216,7 +230,6 @@
         }
         .about-content ul li::before { content: "✓"; color: var(--accent); font-weight: 700; }
         .about-image {
-            background: var(--primary);
             border-radius: var(--radius);
             padding: 60px 40px;
             text-align: center;
@@ -225,10 +238,35 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary) 0%, #0d1f33 100%);
+            position: relative;
+            overflow: hidden;
         }
-        .about-image .big-icon { font-size: 64px; margin-bottom: 16px; }
-        .about-image p { color: #ffffff; font-size: 0.95rem; }
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: var(--accent);
+            opacity: 0.08;
+            border-radius: 50%;
+        }
+        .about-image::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 120px;
+            height: 120px;
+            background: var(--accent);
+            opacity: 0.06;
+            border-radius: 50%;
+        }
+        .about-image .big-icon { font-size: 64px; margin-bottom: 16px; position: relative; z-index: 1; }
+        .about-image h3 { position: relative; z-index: 1; }
+        .about-image p { color: #ffffff; font-size: 0.95rem; opacity: 0.9; position: relative; z-index: 1; }
 
         .contact-grid {
             display: grid;
@@ -243,15 +281,16 @@
             align-items: flex-start;
         }
         .contact-item .ci-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(201,161,59,0.12);
+            width: 44px;
+            height: 44px;
+            background: var(--accent-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             font-size: 18px;
+            color: var(--accent);
         }
         .contact-item .ci-label { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
         .contact-item .ci-value { font-weight: 600; color: var(--text); }
@@ -262,6 +301,7 @@
             padding: 32px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+            border-top: 3px solid var(--accent);
         }
         .contact-form h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 20px; }
         .form-group { margin-bottom: 16px; }
@@ -291,9 +331,9 @@
             background: var(--primary);
             color: var(--white);
             border: none;
-            padding: 12px 28px;
+            padding: 14px 28px;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.2s;
@@ -302,21 +342,24 @@
         .btn-submit:hover { background: var(--primary-dark); }
 
         footer {
-            background: var(--primary-dark);
-            color: rgba(255,255,255,0.8);
-            padding: 40px 0 24px;
+            background: linear-gradient(180deg, var(--primary-dark) 0%, #0a1a2a 100%);
+            color: #ffffff;
+            padding: 48px 0 24px;
             text-align: center;
+            border-top: 3px solid var(--accent);
         }
         footer .logo-text { margin-bottom: 8px; }
-        footer p { font-size: 0.85rem; }
+        footer p { font-size: 0.85rem; opacity: 0.8; }
         footer .footer-links { margin: 16px 0; }
         footer .footer-links a {
-            color: rgba(255,255,255,0.85);
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 14px;
             font-size: 0.85rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
         }
-        footer .footer-links a:hover { color: var(--accent); }
+        footer .footer-links a:hover { opacity: 1; color: var(--accent); }
         footer hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px auto; max-width: 400px; }
 
         @media (max-width: 768px) {
@@ -402,7 +445,7 @@
             </div>
             <div class="about-image">
                 <div class="big-icon">🏪</div>
-                <h3 style="margin-bottom:8px;color:var(--accent);">La Bodega de LLantas</h3>
+                <h3 style="margin-bottom:8px;color:var(--accent);font-size:1.3rem;">La Bodega de LLantas</h3>
                 <p>Luis de León Romano #169, Col. Nueva Valladolid<br>Morelia, Michoacán</p>
                 <p style="margin-top:12px;">Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábado: 9:00 AM - 2:00 PM</p>
             </div>
